@@ -41,11 +41,18 @@ const Checkout = (props) => {
 
         const formIsValid = enteredNameIsValid && enteredStreetIsValid && enteredPostalCodeIsValid && enteredCityIsValid;
 
-        // Submit the cart data
         if (!formIsValid) {
             return;
         }
         
+        // Submit the cart data
+        props.onConfirm({
+            name: enteredName,
+            street: enteredStreet,
+            postalCode: enteredPostalCode,
+            city: enteredCity
+        });
+
     }
 
     return (
